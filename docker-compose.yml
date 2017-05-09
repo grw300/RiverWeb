@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  river_web:
+    image: river_web
+    build:
+      context: ./rivER_web
+      dockerfile: Dockerfile
