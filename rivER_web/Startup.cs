@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace rivER_web
 {
@@ -35,8 +34,6 @@ namespace rivER_web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -49,29 +46,6 @@ namespace rivER_web
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationScheme = "Cookies"
-            });
-
-            app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
-            {
-                AuthenticationScheme = "oidc",
-                SignInScheme = "Cookies",
-
-                Authority = "http://10.2.108.43:5000",
-                RequireHttpsMetadata = false,
-
-                ClientId = "rivER_web",
-                ClientSecret = "artifacts",
-
-                ResponseType = "code id_token",
-                Scope = {"rivER_api", "offline_access"},
-
-                GetClaimsFromUserInfoEndpoint = true,
-                SaveTokens = true
-            });
 
             app.UseStaticFiles();
 

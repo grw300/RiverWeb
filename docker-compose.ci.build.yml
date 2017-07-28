@@ -1,9 +1,0 @@
-version: '2'
-
-services:
-  ci-build:
-    image: microsoft/aspnetcore-build:latest
-    volumes:
-      - .:/src
-    working_dir: /src
-    command: /bin/bash -c "dotnet restore ./rivER_web.sln && dotnet publish ./rivER_web.sln -c Release -o ./obj/Docker/publish"
