@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using rivER_web.Services;
 
 namespace rivER_web
 {
@@ -27,6 +28,10 @@ namespace rivER_web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<RiverAPIConfiguration>(Configuration.GetSection("RiverAPI"));
+
+            services.AddSingleton<IRiverAPIService, RiverAPIService>();
+
             // Add framework services.
             services.AddMvc();
         }
