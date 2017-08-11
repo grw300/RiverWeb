@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace rivER_web.ViewComponents
 {
-    public class RiverStampsViewComponent : ViewComponent
+    public class RiverStamps : ViewComponent
     {
         readonly IRiverAPIService riverAPIService;
-        public RiverStampsViewComponent(IRiverAPIService riverAPIService)
+        public RiverStamps(IRiverAPIService riverAPIService)
         {
             this.riverAPIService = riverAPIService;
         }
