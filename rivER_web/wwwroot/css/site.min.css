@@ -1,28 +1,59 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
 }
 
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+body {
+    padding-top: 70px;
 }
 
-input, select, textarea {
-    max-width: 280px;
+footer {
+    padding: 30px 0;
 }
 
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all .25s ease-out;
+        -o-transition: all .25s ease-out;
+        transition: all .25s ease-out;
+    }
 
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
+    .row-offcanvas-right {
+        right: 0;
+    }
 
-@media screen and (max-width:767px) {
-    .carousel-caption {
-        display: none;
+    .row-offcanvas-left {
+        left: 0;
+    }
+
+    .row-offcanvas-right .sidebar-offcanvas {
+        right: -50%; /* 6 columns */
+    }
+
+    .row-offcanvas-left .sidebar-offcanvas {
+        left: -50%; /* 6 columns */
+    }
+
+    .row-offcanvas-right.active {
+        right: 50%; /* 6 columns */
+    }
+
+    .row-offcanvas-left.active {
+        left: 50%; /* 6 columns */
+    }
+
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+        width: 50%; /* 6 columns */
     }
 }

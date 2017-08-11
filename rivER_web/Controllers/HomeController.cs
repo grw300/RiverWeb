@@ -25,6 +25,8 @@ namespace rivER_web.Controllers
         {
             ViewData["Message"] = "Your application description page.";
 
+            //na
+
             return View();
         }
 
@@ -37,7 +39,7 @@ namespace rivER_web.Controllers
 
         public IActionResult Secure()
         {
-            return View(); 
+            return View();
         }
 
         public IActionResult Error()
