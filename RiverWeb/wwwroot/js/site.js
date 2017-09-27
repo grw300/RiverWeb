@@ -6,6 +6,8 @@ $(document).ready(function () {
 });
 
 //DataTable
-$(document).ready(function() {
+$(document).ready(function () {
+    $.fn.dataTable.moment( 'M/D/YYYY h:mm:s A' );
+
     $('#Stamps').DataTable();
 } );

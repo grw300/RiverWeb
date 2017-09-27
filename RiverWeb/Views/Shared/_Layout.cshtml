@@ -35,9 +35,8 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    <li class='@Html.IsActive("Home", "Sites")'><a asp-area="" asp-controller="Home" asp-action="Sites">Sites</a></li>
                     <li class='@Html.IsActive("Home", "About")'><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li class='@Html.IsActive("Home", "Contact")'><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li class='@Html.IsActive("Home", "Secure")'><a asp-area="" asp-controller="Home" asp-action="Secure">Secure</a></li>
                 </ul>
             </div><!-- /.nav-collapse -->
         </div><!-- /.container -->
@@ -56,6 +55,8 @@
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/lib/datatables/media/js/dataTables.bootstrap.js"></script>
         <script src="~/lib/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="~/lib/moment/moment.js"></script>
+        <script src="~/lib/datatables-datetime-moment/dist/js/datetime-moment.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
@@ -80,6 +81,14 @@
                 asp-fallback-src="~/lib/datatables/media/js/dataTables.bootstrap.min.js"
                 crossorigin="anonymous"
                 integrity="sha384-7PXRkl4YJnEpP8uU4ev9652TTZSxrqC8uOpcV1ftVEC7LVyLZqqDUAaq+Y+lGgr9">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"
+                integrity="sha384-DRe+1gYJauFEenXeWS8TmYdBmDUqnR5Rcw7ax4KTqOxXWd4NAMP2VPU5H69U7yP9"
+                crossorigin="anonymous">
+        </script>
+        <script src="http://cdn.datatables.net/plug-ins/3cfcc339e89/sorting/datetime-moment.js"
+                integrity="sha384-N635CBhY1gl17Bzi/Dfpx2BvOdwDLU6lsog/NzBA23fyK3Ryqvno5YojnF4n1zoA"
+                crossorigin="anonymous">
         </script>
         <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js">
         </script>
