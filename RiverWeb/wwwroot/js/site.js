@@ -4,3 +4,8 @@ $(document).ready(function () {
     $('.row-offcanvas').toggleClass('active')
   });
 });
+
+//DataTable
+$(document).ready(function() {
+    $('#Stamps').DataTable();
+} );

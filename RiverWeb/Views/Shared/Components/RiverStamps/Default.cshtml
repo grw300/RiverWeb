@@ -2,30 +2,27 @@
 
 <h3>Stamps</h3>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <p>Personal</p>
-        </div>
-        <div class="col-sm-4">
-            <p>Location</p>
-        </div>
-        <div class="col-sm-4">
-            <p>Time</p>
-        </div>
-    </div>
+<table id="Stamps" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Personnel</th>
+            <th>Location</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th align="right" colspan="3">Confidential</th>
+        </tr>
+    </tfoot>
+    <tbody>
     @foreach (var stamp in Model)
     {
-        <div class="row">
-            <div class="col-sm-4">
-                @stamp.Personal.Data?.Name
-            </div>
-            <div class="col-sm-4">
-                @stamp.Location
-            </div>
-            <div class="col-sm-4">
-                @stamp.Time
-            </div>
-        </div>
+        <tr>
+            <td>@stamp.Personal.Data?.Name</td>
+            <td>@stamp.Location</td>
+            <td>@stamp.Time</td>
+        </tr>
     }
-</div>
+    </tbody>
+</table>

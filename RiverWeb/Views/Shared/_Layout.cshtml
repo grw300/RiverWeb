@@ -7,6 +7,8 @@
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/datatables/media/css/jquery.dataTables.css" />
+        <link rel="stylesheet" href="~/lib/datatables/media/css/dataTables.bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
@@ -14,6 +16,8 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/css/ie10-viewport-bug-workaround.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
@@ -33,12 +37,12 @@
                 <ul class="nav navbar-nav">
                     <li class='@Html.IsActive("Home", "About")'><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li class='@Html.IsActive("Home", "Contact")'><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-					<li class='@Html.IsActive("Home", "Secure")'><a asp-area="" asp-controller="Home" asp-action="Secure">Secure</a></li>
+                    <li class='@Html.IsActive("Home", "Secure")'><a asp-area="" asp-controller="Home" asp-action="Secure">Secure</a></li>
                 </ul>
             </div><!-- /.nav-collapse -->
         </div><!-- /.container -->
     </nav><!-- /.navbar -->
-		
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -50,6 +54,8 @@
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/datatables/media/js/dataTables.bootstrap.js"></script>
+        <script src="~/lib/datatables/media/js/jquery.dataTables.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
@@ -65,11 +71,21 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"
+                asp-fallback-src="~/lib/datatables/media/js/jquery.dataTables.min.js"
+                crossorigin="anonymous"
+                integrity="sha384-Z9D45cp3elqajO+xEyjRTIK1Gr3eYsXiyCPIKNog1sIQzpo2fqFDqFdADGiJjzOv">
+        </script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"
+                asp-fallback-src="~/lib/datatables/media/js/dataTables.bootstrap.min.js"
+                crossorigin="anonymous"
+                integrity="sha384-7PXRkl4YJnEpP8uU4ev9652TTZSxrqC8uOpcV1ftVEC7LVyLZqqDUAaq+Y+lGgr9">
+        </script>
         <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js">
         </script>
 
         <script src="~/js/site.min.js" asp-append-version="true"></script>
-        
+
     </environment>
 
     @RenderSection("Scripts", required: false)
