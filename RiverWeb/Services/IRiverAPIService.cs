@@ -7,6 +7,8 @@ namespace RiverWeb.Services
 {
     public interface IRiverApiService
     {
+        Task<IEnumerable<T>> GetRiverModelByLinkAsync<T>(string link)
+                    where T : BaseIdentifiable, new();
         Task<IEnumerable<T>> GetRiverModelsAsync<T>(string queryParameters = null)
             where T : BaseIdentifiable, new();
         Task<T> GetRiverModelByIdAsync<T>(string id, string queryParameters = null)

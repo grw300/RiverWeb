@@ -30,6 +30,16 @@ namespace RiverWeb.Services
             };
         }
 
+        public async Task<IEnumerable<T>> GetRiverModelByLinkAsync<T>(string link)
+            where T : BaseIdentifiable, new()
+        {
+            var response = await httpClient.GetAsync(link);
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<T>>(content, jsonApiSerializerSettings);
+        }
+
         public async Task<IEnumerable<T>> GetRiverModelsAsync<T>(string queryParameters = null)
             where T : BaseIdentifiable, new()
         {

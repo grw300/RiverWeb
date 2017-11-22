@@ -30,7 +30,15 @@ namespace RiverWeb.Controllers
             return View();
         }
 
-        public IActionResult Sites()
+        public IActionResult FirstExperiment()
+        {
+            return View();
+        }
+        public IActionResult SecondExperiment()
+        {
+            return View();
+        }
+        public IActionResult ThirdExperiment()
         {
             return View();
         }

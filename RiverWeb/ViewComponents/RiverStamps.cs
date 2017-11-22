@@ -16,10 +16,13 @@ namespace RiverWeb.ViewComponents
         {
             this.riverAPIService = riverAPIService;
         }
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string personnel)
         {
-            var stamps = await riverAPIService.GetRiverModelsAsync<Stamp>("?include=owner-personal");
-            return View(stamps);
+            var personal = await riverAPIService.GetRiverModelsAsync<Personal>($"?filter[name]=eq:{personnel}");
+            var stamps = await riverAPIService.GetRiverModelByLinkAsync<Stamp>(
+                personal?.FirstOrDefault().Stamps.Links["related"].Href + "?include=owner-personal");
+            
+            return View(stamps.OrderBy(s => s.Time));
         }
     }
 }
